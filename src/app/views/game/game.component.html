@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="div">
+    <h1 (click)="startGame()">{{title}}</h1>
+    @if(!gameFinish){
+    <table style="margin-left:auto;margin-right:auto;">
+      @for (row of currentGame; track row;let i=$index) {
+      <tr>
+        @for (cell of row; track cell;let j=$index) {
+        <td (click)="cellPosition(i,j)" class="activity" [ngStyle]="{'background':gameStart?currentColors[i][j]:''}"></td>
+        }
+      </tr>
+      }
+    </table>
+    @if(gameStart){
+      <h1 (click)="check()">Check!</h1>
+    }
+  }
+  </div>
+</div>
